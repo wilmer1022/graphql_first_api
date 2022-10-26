@@ -10,12 +10,15 @@ Simple GraphQL Blog API using Nodejs and Mongodb
 
 ## util init commands
 
-- npm init -y
-- npm i -D @babel/cli @babel/core @babel/node @babel/plugin-transform-runtime @babel/preset-env nodemon
-- npm i bcryptjs cors dotenv express express-handlebars express-graphql graphql @graphql-tools/utils @graphql-tools/merge @graphql-tools/schema @graphql-tools/resolvers-composition jsonwebtoken mongoose morgan
+```
+npm init -y
+npm i -D @babel/cli @babel/core @babel/node @babel/plugin-transform-runtime @babel/preset-env nodemon
+npm i bcryptjs cors dotenv express express-handlebars express-graphql graphql @graphql-tools/utils @graphql-tools/merge @graphql-tools/schema @graphql-tools/resolvers-composition jsonwebtoken mongoose morgan
+```
 
 ## queries and graphql mutations examples
 
+```
 mutation {
   register(username: "wdguarin", email: "wdguarin@email.com", password: "davidroot", displayName: "Wilmer", role: ["admin", "user"])
 }
@@ -88,6 +91,7 @@ query {
 mutation {
   updatePost(id: "<post_id>", title: "post updated", body: "changed content in post")
 }
+```
 
 ### Environment variables
 
