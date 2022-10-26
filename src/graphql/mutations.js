@@ -119,7 +119,7 @@ const createComment = {
       });
 
       await commnets.save();
-      
+
       return "The new comment was created";
     } catch (error) {
       throw new Error(error);
@@ -127,4 +127,32 @@ const createComment = {
   },
 };
 
-export { register, login, createPost, createComment };
+const updatePost = {
+  type: GraphQLString,
+  description: "Update a post content",
+  args: {
+    id: { type: new GraphQLNonNull(GraphQLID) },
+    title: { type: new GraphQLNonNull(GraphQLString) },
+    body: { type: new GraphQLNonNull(GraphQLString) },
+  },
+  resolve: async (_, args, { id }) => {
+    try {
+      const postUpdated = await Post.findOneAndUpdate(
+        {
+          _id: args.id,
+          authorId: id,
+        },
+        { title: args.title, body: args.body },
+        { new: true, runValidators: true }
+      );
+
+      if (!postUpdated) throw new Error("No post for given id");
+
+      return "The post was updated";
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+};
+
+export { register, login, createPost, createComment, updatePost };

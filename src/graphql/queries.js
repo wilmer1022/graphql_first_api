@@ -32,7 +32,18 @@ const posts = {
   description: "Get all post",
   resolve: async () => {
     return Post.find();
-  }
-}
+  },
+};
 
-export { root, users, user, posts };
+const post = {
+  type: PostType,
+  description: "Get a post by id",
+  args: {
+    id: { type: GraphQLID },
+  },
+  resolve: async (_, args) => {
+    return Post.findById(args.id);
+  },
+};
+
+export { root, users, user, posts, post };

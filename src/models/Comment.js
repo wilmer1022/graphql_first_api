@@ -4,15 +4,15 @@ const commentSchema = new Schema(
   {
     comment: {
       type: String,
-      required: true,
+      required: [true, "can't be blank"],
     },
     userId: {
-      type: String,
-      required: true,
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
     postId: {
-      type: String,
-      required: true,
+      type: Schema.Types.ObjectId,
+      ref: "Post",
     },
     likes: {
       type: Number,

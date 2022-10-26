@@ -3,17 +3,18 @@ import cors from "cors";
 import morgan from "morgan";
 import { graphqlHTTP } from "express-graphql";
 import { schema } from "./graphql/schema";
+import { PORT } from "./config.js";
 
 const app = express();
 
 // Settings
-app.set("port", process.env.PORT || 3000);
+app.set("port", PORT);
 app.set("json spaces", 4);
 
 // Middlewares
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: "*",
   })
 );
 

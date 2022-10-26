@@ -9,7 +9,7 @@
     "start": "node build/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "wilmer1022",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.18.10",

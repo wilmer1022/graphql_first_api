@@ -2,8 +2,9 @@
 
 Simple GraphQL Blog API using Nodejs and Mongodb
 
-### Requerimentos
+### Requirements
 
+- Docker
 - Mongodb
 - Nodejs
 
@@ -58,7 +59,7 @@ query {
     author {
       displayName
     }
-    comments {
+    comments(numLimit: 1) {
       id
       comment
       likes
@@ -71,6 +72,21 @@ query {
 
 mutation {
   createComment(comment: "A new comment", postId: "<post_id>")
+}
+
+query {
+  post(id: "<post_id>")
+  {
+    title
+    body
+    comments {
+      comment
+    }
+  }
+}
+
+mutation {
+  updatePost(id: "<post_id>", title: "post updated", body: "changed content in post")
 }
 
 ### Environment variables

@@ -53,7 +53,6 @@ const PostType = new GraphQLObjectType({
     author: {
       type: UserType,
       resolve(parent) {
-        console.log(parent.authorId)
         return User.findById(parent.authorId);
       },
     },
@@ -61,8 +60,11 @@ const PostType = new GraphQLObjectType({
     body: { type: GraphQLString },
     comments: {
       type: new GraphQLList(CommentType),
-      resolve(parent) {
-        return Comment.find({ postId: parent.id });
+      args: {
+        numLimit: { type: GraphQLInt },
+      },
+      resolve(parent, args) {
+        return Comment.find({ postId: parent.id }).limit(args.numLimit);
       },
     },
     likes: { type: GraphQLInt },

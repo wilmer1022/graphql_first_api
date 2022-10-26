@@ -8,11 +8,11 @@ const postSchema = new Schema(
     },
     title: {
       type: String,
-      required: true,
+      required: [true, "can't be blank"],
     },
     body: {
       type: String,
-      required: true,
+      required: [true, "can't be blank"],
     },
     likes: {
       type: Number,

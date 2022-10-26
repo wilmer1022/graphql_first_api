@@ -3,7 +3,7 @@ config();
 
 export const MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://mongo_db/apicompany";
-export const PORT = process.env.PORT || 3000;
+export const PORT = process.env.PORT || 8000;
 export const JWT_SECRET = process.env.JWT_SECRET || "ana090399d1608";
 export const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "1h";
 

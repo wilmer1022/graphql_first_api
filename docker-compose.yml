@@ -3,7 +3,7 @@ version: "3.9"
 services:
   # MongoDB services
   mongo_db:
-    container_name: tasksdb
+    container_name: postdb
     image: mongo:latest
     ports:
       - "27017:27017"
@@ -12,11 +12,10 @@ services:
 
   # Node API service
   api:
-    container_name: tasksapp
-    restart: always
+    container_name: postapp
     build: .
     ports:
-      - 3000:3000
+      - 8000:8000
     volumes:
       - .:/usr/src/app
     depends_on:
