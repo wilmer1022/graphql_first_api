@@ -14,6 +14,7 @@ const postSchema = new Schema(
       type: String,
       required: [true, "can't be blank"],
     },
+	createDate: { type: Date, default: Date.now },
     likes: {
       type: Number,
       default: 0,

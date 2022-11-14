@@ -58,6 +58,7 @@ query {
     id
     title
     body
+    createDate
     likes
     author {
       displayName

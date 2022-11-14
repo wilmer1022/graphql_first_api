@@ -68,6 +68,7 @@ const PostType = new GraphQLObjectType({
       },
     },
     likes: { type: GraphQLInt },
+	createDate: { type: GraphQLString },
   }),
 });
 
