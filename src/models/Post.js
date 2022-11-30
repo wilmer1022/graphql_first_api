@@ -14,7 +14,7 @@ const postSchema = new Schema(
       type: String,
       required: [true, "can't be blank"],
     },
-	createDate: { type: Date, default: Date.now },
+    createDate: { type: Date, default: Date.now },
     likes: {
       type: Number,
       default: 0,
@@ -26,4 +26,4 @@ const postSchema = new Schema(
   }
 );
 
-export default model('Post', postSchema);
+export default model("Post", postSchema);
